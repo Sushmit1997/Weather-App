@@ -4,6 +4,8 @@ const api ={
 
     
 }
+window.onload = todaydate();
+
 if (location.protocol === 'http:') {
     var baseurl;
     baseurl = 'http://api.openweathermap.org/data/2.5/';

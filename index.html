@@ -5,22 +5,23 @@
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet"  href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.png" />
     
     <title>Weather App</title>
 </head>
-<body>
+<body onload=" todaydate()">
     <div class="app-wrap text-center">
         <header>
        
-                    <input type="text" class="search-box"   autocomplete="off" placeholder="Type City Name"> 
+                    <input type="text" class="search-box"   autocomplete="off" placeholder="(Kathmandu) City Name"> 
                     <br>
                     <br>
                     <button class="btn btn-dark btn-lg" onclick="btnclick()"><i class="fa fa-check"></i></button>        
         </header>
         <main>
             <section class="location">
-                <div class="city"> New York, US  </div>
-                <div class="date">Thursday 9 April 2020 </div>
+                <div class="city"> Kathmandu, NP  </div>
+                <div class="date"> </div>
 
             </section>
             <div class="current">
@@ -37,7 +38,10 @@
 
     </div>
    
-    
-    <script src="main.js"></script>
+   <script>
+       
+   </script> 
+    <script src="main.js">
+    </script>
 </body>
 </html>

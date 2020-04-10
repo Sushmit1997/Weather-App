@@ -12,12 +12,24 @@ if (location.protocol === 'http:') {
  }
 
 
+
+ 
+
+
+
 const searchbox = document.querySelector('.search-box');
 searchbox.addEventListener('keypress', setQuery);
 
 
+window.onload = getResults('Kathmandu');
+
+
+
+
 function btnclick(){
-    getResults(searchbox.value);
+ 
+        getResults(searchbox.value);
+    
 
 }
 function setQuery(evt){
@@ -53,6 +65,18 @@ function displayResults(weather){
     let maxmin = document.querySelector('.current .hi-low');
     maxmin.innerText =`${Math.round(weather.main.temp_max)}°C /${Math.round(weather.main.temp_min)}°C`;
    
+    today.innerText = `${days[day]} ${month[monthz]} ${date}, ${year} `;
+
+}
+
+function todaydate(){
+    var month =['January', 'February', 'March', 'April','May','June','July', 'August','September','October','November','December'];
+    var days =['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    var date = new Date().getDate();
+    var day = new Date().getDay();
+    var year = new Date().getFullYear();
+    var monthz = new Date().getMonth();
+    var today = document.querySelector('.location .date');
     today.innerText = `${days[day]} ${month[monthz]} ${date}, ${year} `;
 
 }

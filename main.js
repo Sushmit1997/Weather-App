@@ -1,9 +1,16 @@
 const api ={
     key: "8ccc7f76b016feba98af18dbd3544e33",
-    baseurl: "http://api.openweathermap.org/data/2.5/"
+    /* baseurl: "http://api.openweathermap.org/data/2.5/" */
 
     
 }
+if (location.protocol === 'http:') {
+    var baseurl;
+    baseurl = 'http://api.openweathermap.org/data/2.5/';
+ } else {
+    baseurl = 'https://api.openweathermap.org/data/2.5/';
+ }
+
 
 const searchbox = document.querySelector('.search-box');
 searchbox.addEventListener('keypress', setQuery);
@@ -21,7 +28,7 @@ function setQuery(evt){
 }
 
 function getResults(query){
-    fetch(`${api.baseurl}weather?q=${query}&units=metric&APPID=${api.key}`)
+    fetch(`${baseurl}weather?q=${query}&units=metric&APPID=${api.key}`)
     .then(weather =>{
         return weather.json();
     }).then(displayResults);

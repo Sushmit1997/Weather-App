@@ -14,8 +14,39 @@ if (location.protocol === 'http:') {
  }
 
 
-
  
+//Default Location Selection
+
+ var markup = `
+ <input class="input_location1" type= "text" placeholder="(KTM) Enter Your Location"> <br> <button class="btn4 btn-dark" onclick="displayquery()"> <i class="fa fa-check"></i></button> `
+
+var lauda = async function() {
+    console.log('Working');
+    await clearArea();
+    document.querySelector('.btn2').innerHTML = markup;
+}
+
+
+var clearArea = () => {
+    document.querySelector('.btn2').insertAdjacentHTML = '';
+}
+
+
+var displayquery =  () => {
+    var location = document.querySelector('.input_location1').value;
+    console.log(location);
+    localStorage.setItem('location1', location);
+    window.location.reload();
+    setDefault();
+    console.log(`Your Default Location is ${localStorage.getItem('location1')}`);
+    
+}
+
+var setDefault = () => {
+    document.querySelector('.btn2').innerHTML = ` <button onclick="lauda()">Set Default</button>`;
+
+}
+
 
 
 
@@ -23,7 +54,7 @@ const searchbox = document.querySelector('.search-box');
 searchbox.addEventListener('keypress', setQuery);
 
 
-window.onload = getResults('Kathmandu');
+window.onload = getResults(localStorage.getItem('location1'));
 
 
 
@@ -82,6 +113,8 @@ function todaydate(){
     today.innerText = `${days[day]} ${month[monthz]} ${date}, ${year} `;
 
 }
+
+
 
 
 
